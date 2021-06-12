@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login page</title>
+
+</head>
+<body  bgcolor="#7fffd4">
+
+{% if message == "Admin" %}
+<h1 align="center">welcome admin</h1>
+{% elif message == "Employee" %}
+<h1 align="center">welcome employee</h1>
+{% elif message == "Customer" %}
+<h1 align="center">welcome customer</h1>
+{% elif message == "error"%}
+<h1 align="center">sorry!You have entered wrong inputs</h1>
+{% else %}
+<form method="post" action="/index/">
+    {% csrf_token %}
+
+    <table align="center" border="9px" width="3px">
+        <tr>
+            <th colspan="2">login table</th>
+        </tr>
+        <tr>
+            <td>user name</td>
+            <td>
+                <input  type="text" placeholder="username" required name="t1">
+            </td>
+        </tr>
+        <tr>
+            <td>password</td>
+            <td>
+                <input type="password" placeholder="password" required name="t2">
+            </td>
+        </tr>
+
+
+        <tr>
+            <td>type</td>
+            <td>
+                <select name="ty" >
+            <option >Admin</option>
+            <option >Employee</option>
+            <option>Customer</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <th colspan="2">
+                <button type="submit">Login</button>
+            </th>
+        </tr>
+
+    </table>
+</form>
+{% endif %}
+
+</body>
+</html>
