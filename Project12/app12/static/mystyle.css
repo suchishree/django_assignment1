@@ -1,0 +1,8 @@
+.main_menu{
+    border-style: solid;
+    border-radius: 20px;
+    border-color: chocolate;
+    border-width: thick;
+    background-color: chocolate;
+    margin-bottom: 10px;
+}
