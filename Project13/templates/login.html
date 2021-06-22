@@ -1,0 +1,54 @@
+{% extends "common.html" %}
+{% block content %}
+    <form action="{% url 'login' %}" method="post">
+    {% csrf_token %}
+    <div style="background-color: blueviolet;
+                border-radius: 20px;
+                border-color: chocolate;
+                border-style: solid;
+                margin-bottom: 10px;">
+    <table align="center" style="width: 400px">
+        <tr>
+            <th> <h3 align="center">Login</h3></th>
+        </tr>
+        <tr>
+            <td>
+        <input type="email"
+                     class="form-control"
+                     placeholder="Email(Username)"
+                     required
+                     aria-label="Username"
+                     aria-describedby="basic-addon1"
+                     name="email">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="password"
+                     class="form-control"
+                     placeholder="password"
+                     required
+                     aria-label="Username"
+                     aria-describedby="basic-addon1"
+                     name="password">
+            </td>
+        </tr>
+        <tr>
+            <th style="text-align: center">
+            <button type="submit" class="btn btn-primary">Login</button>
+            </th>
+        </tr>
+        {% if error_message %}
+            <tr>
+            <td>
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+  <strong>{{ error_message }}</strong>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            </td>
+            </tr>
+        {% endif %}
+    </table>
+    </div>
+    </form>
+{% endblock %}
