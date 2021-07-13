@@ -1,0 +1,8 @@
+from captcha.image import ImageCaptcha
+
+ic=ImageCaptcha
+
+ic.write("1234","sample.png")
+
+print("captcha is created")
+

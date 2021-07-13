@@ -1,0 +1,24 @@
+div{
+    background-color: aqua;
+}
+
+h1{
+    background-color: blueviolet;
+    border-style: double;
+    border-color: crimson;
+
+}
+body{
+    border-style: solid;
+    border-color: darkolivegreen;
+}
+#rosy{
+    margin: 6px;
+    border-style: dotted;
+    border-width: 9px;
+    border-color: darkorange;
+    background-color:darkslategrey;
+    font-style: italic;
+    font-size: medium;
+
+}

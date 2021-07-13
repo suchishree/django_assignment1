@@ -1,0 +1,88 @@
+{% extends "common.html" %}
+{% block content %}
+    <form action="{% url 'register' %}" method="post">
+
+    {% csrf_token %}
+    <div style="background-color: blueviolet;
+                border-radius: 20px;
+                border-color: chocolate;
+                border-style: solid;
+                margin-bottom: 10px">
+    <table align="center" style="width: 400px;">
+    <tr>
+        <th><h3 align="center">Registration</h3></th>
+    </tr>
+    <tr>
+        <td>
+              <input type="text"
+                     class="form-control"
+                     placeholder="name"
+                     required
+                     aria-label="Username"
+                     aria-describedby="basic-addon1"
+                     name="name">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="number"
+                     class="form-control"
+                     placeholder="contact number"
+                     required
+                     aria-label="Username"
+                     aria-describedby="basic-addon1"
+                     name="contact">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="text"
+                     class="form-control"
+                     placeholder="Location"
+                     required
+                     aria-label="Username"
+                     aria-describedby="basic-addon1"
+                     name="location">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="email"
+                     class="form-control"
+                     placeholder="Email"
+                     required
+                     aria-label="Username"
+                     aria-describedby="basic-addon1"
+                     name="email">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="password"
+                     class="form-control"
+                     placeholder="password"
+                     required
+                     aria-label="Username"
+                     aria-describedby="basic-addon1"
+                     name="password">
+        </td>
+    </tr>
+    <tr>
+        <th style="text-align: center">
+            <button type="submit" class="btn btn-primary">Register</button>
+        </th>
+    </tr>
+        {% if message %}
+            <tr>
+            <th>
+                <div class="alert alert-primary" role="alert">
+                {{ message }}
+               </div>
+            </th>
+            </tr>
+
+        {% endif %}
+    </table>
+    </div>
+    </form>
+{% endblock %}

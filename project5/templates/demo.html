@@ -1,0 +1,43 @@
+<html lang="en">
+    <head>
+        <style></style>
+    </head>
+
+<body bgcolor="aqua">
+    <h1 align="center">students marks</h1>
+    <table align="center" border="9" width="80%">
+        <tr>
+            <th rowspan="2">idno</th>
+            <th rowspan="2">name</th>
+            <th colspan="6">marks</th> 
+            
+        </tr>
+        <tr >
+            <th>subj1</th>
+            <th>subj2</th>
+            <th>subj3</th>
+            <th>subj4</th>
+            <th>subj5</th>
+            <th>subj6</th>
+        </tr>
+        {% for record in data %}
+           <tr align="center">
+               <td>{{record.idno}}</td>
+               <td>{{record.name}}</td>
+               
+                   {% for subject in record.marks%}
+                       {% if subject < 35 %}
+                         <td style="background-color: red;">{{subject}}</td>
+                        {%elif subject == "A" %}
+                          <td style="background-color:yellow;">{{subject}}</td>
+                        {% else %} 
+                        <td style="background-color: chartreuse;">{{subject}}</td> 
+                        {%endif%}
+                   {% endfor %}
+            </tr>   
+        {% endfor %}
+    </table>
+</body>
+</html>
+
+                     

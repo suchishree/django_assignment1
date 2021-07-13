@@ -1,0 +1,73 @@
+{% extends 'main.html' %}
+{% block content %}
+    <div class="container" style="background-color: #c3dbd4">
+
+<table align="center" border="0">
+    <tr>
+        <th> <h3 style="color: darkblue">Register Or SignIn For Vaccination </h3></th>
+    </tr>
+    <tr>
+        <th>
+            <div class="input-group mb-3">
+  <span class="input-group-text" id="inputGroup-sizing-default">NAME</span>
+  <input type="text" class="form-control" aria-label="Sizing example input"
+         aria-describedby="inputGroup-sizing-default" name="name" required>
+            </div>
+        </th>
+    </tr>
+        <tr>
+        <th>
+            <div class="input-group mb-3">
+  <span class="input-group-text" id="inputGroup-sizing-default">CONTACT NUMBER</span>
+  <input type="tel" class="form-control" aria-label="Sizing example input"
+         aria-describedby="inputGroup-sizing-default" name="contact_number" required>
+            </div>
+        </th>
+    </tr>
+        <tr>
+        <th>
+            <div class="input-group mb-3">
+  <span class="input-group-text" id="inputGroup-sizing-default">PHOTO</span>
+  <input type="file" class="form-control" aria-label="Sizing example input"
+         aria-describedby="inputGroup-sizing-default" name="photo" required>
+            </div>
+        </th>
+    </tr>
+        <tr>
+        <th>
+            <div class="input-group mb-3">
+  <span class="input-group-text" id="inputGroup-sizing-default">Date Of Birth</span>
+  <input type="date" class="form-control" aria-label="Sizing example input"
+         aria-describedby="inputGroup-sizing-default" name="dob" required>
+            </div>
+        </th>
+    </tr>
+        <tr>
+        <th>
+            <div class="input-group mb-3">
+  <span class="input-group-text" id="inputGroup-sizing-default">ADHAR NUMBER</span>
+  <input type="number" class="form-control" aria-label="Sizing example input"
+         aria-describedby="inputGroup-sizing-default" name="adhar" required>
+            </div>
+        </th>
+    </tr>
+         <tr>
+        <th>
+            <div class="input-group mb-3">
+  <span class="input-group-text" id="inputGroup-sizing-default">PASSWORD</span>
+  <input type="password" class="form-control" aria-label="Sizing example input"
+         aria-describedby="inputGroup-sizing-default" name="password" required>
+            </div>
+        </th>
+    </tr>
+    <tr align="center">
+        <th>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </th>
+    </tr>
+
+
+
+</table>
+    </div>
+{% endblock %}
