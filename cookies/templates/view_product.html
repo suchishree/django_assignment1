@@ -1,0 +1,159 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>Flipkart</title>
+  </head>
+  <body style="background-image: url({% static 'images/background 2.jpg' %});
+               background-repeat: no-repeat;
+               background-attachment: fixed;
+               background-size: 100% 100%">
+  <div class="container">
+      <div class="row">
+          <div class="col-md-2">
+              <img src="{% static 'images/flipkart logo.jpg' %}" width="70" height="70">
+          </div>
+          <div class="col" align="center">
+              <h1 style="text-align: center;color:orange">FLIPKART</h1>
+          </div>
+
+
+      </div>
+          <div class="row">
+              <div class="col">
+                  <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#"><h3 style="color: white;font-family: inherit">Flipkart</h3></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'main' %}"><h4 style="color: white;font-family: 'Agency FB'">Home</h4></a>
+        </li>
+
+          <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'add_product' %}"><h4 style="color: white;font-family: 'Agency FB'">Add product</h4></a>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'view_product' %}"><h4 style="color: white;font-family: 'Agency FB'">View product</h4></a>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#"><h4 style="color: white;font-family: 'Agency FB'">More</h4></a>
+        </li><li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#"><h4 style="color: white;font-family: 'Agency FB'">contact us</h4></a>
+        </li>
+
+
+
+      </ul>
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+              </div>
+          </div>
+      <div class="row">
+          <div class="col" >
+              <img src="{% static 'images/top offers.png' %}">
+              Top offers
+          </div>
+          <div class="col">
+              <img src="{% static 'images/grocery.png' %}">
+              Grocery
+          </div>
+          <div class="col">
+              <img src="{% static 'images/mobiles.png' %}">
+              Mobile
+          </div>
+          <div class="col">
+              <img src="{% static 'images/fashion.png' %}">
+              Fashion
+          </div>
+          <div class="col">
+              <img src="{% static 'images/electonics.png' %}">
+              Electronics
+          </div>
+          <div class="col">
+              <img src="{% static 'images/home.jpg' %}">
+              Home
+          </div>
+          <div class="col">
+              <img src="{% static 'images/Appliances.png' %}">
+              Appliances
+          </div>
+
+          <div class="col">
+              <img src="{% static 'images/Beauty,toys.png' %}">
+              Beauty,Toys & More
+          </div>
+
+
+  </div>
+
+        {% if product %}
+  <table align="center" border="2" class="table table-success table-striped">
+      <tr>
+          <th colspan="5"> <h3 style="text-align: center">saved product</h3>
+            <span>
+              <img src="{% static 'images/cart.png'%}" width="50" height="50"> : {{cookie}}
+            </span>
+          </th>
+          
+
+          
+        
+      </tr>
+      <tr>
+          <th>product number</th>
+          <th>product name</th>
+          <th>product price</th>
+          <th>product description</th>
+          <th>product image</th>
+
+      </tr>
+
+      {% for x in product %}
+      <tr>
+      <th>{{ x.number }}</th>
+      <th>{{ x.name }}</th>
+       <th>{{ x.price }}</th>
+          <th>{{ x.description }}</th>
+       <th>
+           <img src="{{ x.image.url }}" width="200" height="200">
+           <form action="{% url 'save_cookie'%}" method="GET">
+           <input type="hidden" value="{{x.number}}" name="pno">
+           <input type="hidden" value="{{x.name}}" name="pname">
+
+
+                <button type="submit" class="btn btn-success">Add to cart</button>
+              </form>
+       </th>
+       
+      </tr>
+      
+
+       
+      {% endfor %}
+  </table>
+  {% endif %}
+
+  </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+  </body>
+</html>
